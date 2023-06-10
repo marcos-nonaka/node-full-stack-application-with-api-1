@@ -2,13 +2,12 @@
 const express = require("express");
 const router = express.Router();
 
-////////////CONTROLLERS///////////////////
+////////////CONTROLLER///////////////////
 const usuarioController = require("../controller/usuarioController");
-const tarefaController = require("../controller/tarefasController");
 
 ////////////////Requisições HTTP Principal /////////////////////
 router.get("/",(req, res) => {
-  return res.json({message: "Sistema de Lista de Tarefas"});
+  return res.json({message: "Sistema de Lista de Usuários"});
 })
 
 ////////////////Requisições HTTP Usuario /////////////////////
@@ -19,15 +18,5 @@ router.get("/usuarios/:id?", usuarioController.UsuarioListar);
 router.put("/usuarios/:id", usuarioController.UsuarioUpdate);
 //DELETE
 router.delete("/usuarios/:id", usuarioController.UsuarioDelete);
-
-////////////////Requisições HTTP Tarefa /////////////////////
-//POST - CADASTRAR
-router.post("/tarefas/Cadastrar",tarefaController.TarefaCreate);
-//GET - LISTAR
-router.get("/tarefas/:id?", tarefaController.TarefaListar);
-//PUT - UPDATE
-router.put("/tarefas/:id", tarefaController.TarefaUpdate);
-// DELETE
-router.delete("/tarefas/:id", tarefaController.TarefaDelete);
 
 module.exports = router;

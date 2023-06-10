@@ -4,7 +4,7 @@ const Sequelize = require('sequelize');
 //CRIANDO A CONFIGURAÇÃO DO BANCO DE DADOS
 const sequelize = new Sequelize({
   dialect: 'sqlite',
-  storage: './tarefas.sqlite'
+  storage: './usuarios.sqlite'
 });
 
 //TRATANDO POSSÍVEIS ERROS E AUTENTICANDO NO BANCO

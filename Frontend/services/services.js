@@ -2,53 +2,54 @@ const axios = require("axios");
 
 module.exports = class Services {
   //CREATE
-  static async TarefaCreate(req, res) {
+  static async UsuarioCreate(req, res) {
     let valores = req.body;
 
     const options = {
-      url: 'https://listatarefas.marcosnonaka.repl.co/tarefas/Cadastrar',
+      url: 'https://pratica-sem-3-backend.marcosnonaka.repl.co/usuarios/Cadastrar',
       method: 'POST',
       data: valores
     };
     axios(options);
     const mensagem = "Cadastro realizado com sucesso!";
-    res.render("mensagem",{mensagem});
+    res.render("mensagem", { mensagem });
   };
 
   //READ - LISTAR
-  static async TarefaListar(req, res) {
+  static async UsuarioListar(req, res) {
     const options = {
-      url: 'https://listatarefas.marcosnonaka.repl.co/tarefas',
+      url: 'https://pratica-sem-3-backend.marcosnonaka.repl.co/usuarios',
       method: 'GET',
       data: {}
     };
     axios(options).then(response => {
       console.log(response.data);
-      const tarefa = response.data;
-      res.render("tarefas/listar",{tarefa});
+      const usuario = response.data;
+      res.render("usuarios/listar", { usuario });
     });
   };
 
   //UPDATE - ATUALIZAR
-  static async TarefaUpdate(req, res) {
+  static async UsuarioUpdate(req, res) {
     let valores = req.body;
     const options = {
-      url: 'https://listatarefas.marcosnonaka.repl.co/tarefas/' + valores.id_tarefa,
+      url: 'https://pratica-sem-3-backend.marcosnonaka.repl.co/usuarios/' + valores.id_usuario,
       method: 'PUT',
       data: valores
     };
     axios(options);
     const mensagem = "Registro atualizado com sucesso";
-    res.render("mensagem",{mensagem});
+    res.render("mensagem", { mensagem });
   };
 
   //DELETE
-  static async TarefaDelete(req, res) {
-    let id_tarefa = req.body.id_tarefa;
+  static async UsuarioDelete(req, res) {
+    let id_usuario = req.body.id_usuario;
     const options = {
-      url: 'https://listatarefas.marcosnonaka.repl.co/tarefas/' + id_tarefa, method: 'DELETE' };
+      url: 'https://pratica-sem-3-backend.marcosnonaka.repl.co/usuarios/' + id_usuario, method: 'DELETE'
+    };
     axios(options);
-    const mensagem = "Tarefa excluída com sucesso!";
-    res.render("mensagem",{mensagem});
+    const mensagem = "Usuário excluído com sucesso!";
+    res.render("mensagem", { mensagem });
   };
 };

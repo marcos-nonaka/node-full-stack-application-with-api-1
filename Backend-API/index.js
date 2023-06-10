@@ -10,7 +10,6 @@ app.use(express.json());
 
 //MODELS
 const Usuario = require("./model/usuarioModel");
-const Tarefa = require("./model/tarefasModel");
 
 try {
   database.sync().then(() => {
